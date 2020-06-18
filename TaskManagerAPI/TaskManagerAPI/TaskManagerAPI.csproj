@@ -208,7 +208,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\QuotesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -307,6 +307,16 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TaskManagerDAL\TaskManagerDAL.csproj">
+      <Project>{ae9c6916-8238-4297-b476-11b4423bd1e3}</Project>
+      <Name>TaskManagerDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskManagerRepo\TaskManagerRepo.csproj">
+      <Project>{8d0de46b-5f59-4010-8d86-2b5ca4feb2d8}</Project>
+      <Name>TaskManagerRepo</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
