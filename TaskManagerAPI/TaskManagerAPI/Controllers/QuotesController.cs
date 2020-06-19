@@ -6,7 +6,7 @@ using TaskManagerRepo;
 
 namespace TaskManagerAPI.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class QuotesController : ApiController
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
