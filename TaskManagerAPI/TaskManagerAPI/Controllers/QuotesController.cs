@@ -1,16 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
-using TaskManagerDAL.Context;
 using TaskManagerDAL.Models;
 using TaskManagerRepo;
 
 namespace TaskManagerAPI.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class QuotesController : ApiController
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
-        QuoteContext context = new QuoteContext();
 
         // GET api/quotes
         public IEnumerable<Quote> Get()
