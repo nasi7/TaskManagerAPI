@@ -1,13 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using TaskManagerDAL.Models;
-
-namespace TaskManagerDAL.Context
+﻿namespace TaskManagerDAL.Migrations
 {
-    class QuoteInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<QuoteContext>
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity.Migrations;
+    using TaskManagerDAL.Models;
+
+    internal sealed class Configuration : DbMigrationsConfiguration<TaskManagerDAL.Context.QuoteContext>
     {
-        protected override void Seed(QuoteContext context)
+        public Configuration()
         {
+            AutomaticMigrationsEnabled = false;
+        }
+
+        protected override void Seed(TaskManagerDAL.Context.QuoteContext context)
+        {
+            //  This method will be called after migrating to the latest version.
+
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
+            //  to avoid creating duplicate seed data.
+
             var quotes = new List<Quote>
             {
                 new Quote{QuoteType="GP-233",Contact="Sharyl",DueDate=DateTime.Parse("2017-12-20T01:35:19Z"),TaskDescription="In hac habitasse platea dictumst.",TaskType="velit eu est congue elementum in hac"},
@@ -112,7 +123,7 @@ new Quote{QuoteType="SJ-999",Contact="Maximilien",DueDate=DateTime.Parse("2018-0
 new Quote{QuoteType="OZ-833",Contact="Trueman",DueDate=DateTime.Parse("2016-07-24T03:07:30Z"),TaskDescription="Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.",TaskType="convallis nunc proin at turpis a pede posuere"}
             };
 
-            quotes.ForEach(q => context.Quotes.Add(q));
+            quotes.ForEach(s => context.Quotes.AddOrUpdate(p => p.ID, s));
             context.SaveChanges();
         }
     }
