@@ -11,7 +11,7 @@ namespace TaskManagerAPI.Controllers
         private UnitOfWork unitOfWork = new UnitOfWork();
 
         // GET api/quotes
-        //[Authorize]
+        [Authorize]
         public IEnumerable<Quote> Get()
         {
             return unitOfWork.QuoteRepository.GetAll();
