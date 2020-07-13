@@ -69,9 +69,9 @@
   <ItemGroup>
     <Compile Include="Context\QuoteContext.cs" />
     <Compile Include="Context\QuoteInitializer.cs" />
-    <Compile Include="Migrations\202007051713347_InitialCreate.cs" />
-    <Compile Include="Migrations\202007051713347_InitialCreate.designer.cs">
-      <DependentUpon>202007051713347_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202007131628278_initialCreate.cs" />
+    <Compile Include="Migrations\202007131628278_initialCreate.designer.cs">
+      <DependentUpon>202007131628278_initialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Quote.cs" />
@@ -82,8 +82,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202007051713347_InitialCreate.resx">
-      <DependentUpon>202007051713347_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202007131628278_initialCreate.resx">
+      <DependentUpon>202007131628278_initialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

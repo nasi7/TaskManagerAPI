@@ -5,12 +5,13 @@ using TaskManagerRepo;
 
 namespace TaskManagerAPI.Controllers
 {
-    //[Authorize]
+
     public class QuotesController : ApiController
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
 
         // GET api/quotes
+        //[Authorize]
         public IEnumerable<Quote> Get()
         {
             return unitOfWork.QuoteRepository.GetAll();
@@ -33,6 +34,9 @@ namespace TaskManagerAPI.Controllers
         // PUT api/quotes/5
         public void Put(int id, [FromBody]Quote newQuote)
         {
+            /*unitOfWork.QuoteRepository.Delete(id);
+            newQuote.ID = id;
+            unitOfWork.QuoteRepository.Add(newQuote);*/
             Quote oldQuote = unitOfWork.QuoteRepository.Get(id);
             oldQuote.QuoteType = newQuote.QuoteType;
             oldQuote.TaskDescription = newQuote.TaskDescription;

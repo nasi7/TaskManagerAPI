@@ -1,6 +1,7 @@
 ﻿using Microsoft.Owin.Security.OAuth;
+using System.Net.Http.Headers;
 using System.Web.Http;
-using System.Web.Http.Cors;
+using TaskManagerAPI.App_Start;
 
 namespace TaskManagerAPI
 {
@@ -8,10 +9,14 @@ namespace TaskManagerAPI
     {
         public static void Register(HttpConfiguration config)
         {
-            EnableCorsAttribute cors = new EnableCorsAttribute("http://localhost:4200", "*", "*");
-            config.EnableCors(cors);
+            /*            EnableCorsAttribute cors = new EnableCorsAttribute("http://localhost:4200", "*", "*");
+                        config.EnableCors(cors);*/
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
+            config.EnableCors();
+
+            config.MessageHandlers.Add(new PreflightRequestsHandler());
+            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/plain"));
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
